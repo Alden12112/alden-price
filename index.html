@@ -1,89 +1,81 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alden | 专业充值服务</title>
+    <title>Alden</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, sans-serif;
+            font-family: sans-serif;
         }
         body {
-            background: linear-gradient(135deg, #121212, #1e1e1e);
-            color: white;
-            min-height: 100vh;
+            background: #000;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            height: 100vh;
             text-align: center;
             padding: 20px;
         }
-        .container {
-            max-width: 500px;
-            width: 100%;
-        }
         h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
-            background: linear-gradient(90deg, #ffd700, #ffed4b);
-            -webkit-background-clip: text;
-            color: transparent;
-            font-weight: 700;
-        }
-        p {
-            font-size: 17px;
-            color: #ccc;
-            margin-bottom: 40px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 18px 42px;
-            border-radius: 50px;
-            font-size: 17px;
-            font-weight: bold;
-            text-decoration: none;
-            margin: 10px;
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        .btn-primary {
-            background: linear-gradient(90deg, #ffd700, #ffc107);
-            color: #121212;
-        }
-        .btn-wa {
-            background: #25D366;
-            color: white;
-        }
-        .btn:hover {
-            transform: translateY(-3px);
-            opacity: 0.9;
-        }
-        .badge {
-            margin-top: 30px;
+            font-size: 50px;
             color: #ffd700;
-            font-size: 15px;
+            animation: zoom 1.8s infinite alternate, glow 2s infinite alternate;
         }
-        .footer {
-            margin-top: 40px;
-            color: #777;
-            font-size: 13px;
+        @keyframes zoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.15); }
+        }
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px #ffd700; }
+            100% { text-shadow: 0 0 30px #ffd700; }
+        }
+        .info {
+            color: #ccc;
+            margin: 20px 0;
+            font-size: 15px;
+            opacity: 0.8;
+        }
+        .btns a {
+            background: #ffd700;
+            color: #000;
+            padding: 15px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 8px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btns a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px #ffd700;
+        }
+        .wa {
+            background: #25D366 !important;
+            color: #fff !important;
+        }
+        .wa:hover {
+            box-shadow: 0 0 20px #25D366 !important;
+        }
+        .foot {
+            color: #555;
+            margin-top: 50px;
+            font-size: 12px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Alden Premium</h1>
-        <p>全马最安全 · 最快处理 · 信誉保证 · 24小时在线</p>
-
-        <a href="price.html" class="btn btn-primary">进入价格表</a>
-        <a href="https://wa.me/60178541111" class="btn btn-wa" target="_blank">联系客服</a>
-
-        <div class="badge">✅ 100% 安全可靠 | ✅ 极速处理订单</div>
-        <div class="footer">© Alden Service 2025 | All Rights Reserved</div>
+    <h1>Alden Premium</h1>
+    <p class="info">24小时在线 | 安全可靠 | 极速处理</p>
+    <div class="btns">
+        <a href="price.html">价格表</a>
+        <a href="https://wa.me/60178541111" class="wa">联系客服</a>
     </div>
+    <p class="foot">© Alden 2025</p>
 </body>
 </html>

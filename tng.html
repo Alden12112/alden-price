@@ -3,114 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>付款信息 | Alden</title>
+    <title>付款页面</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, sans-serif;
+            font-family: sans-serif;
         }
         body {
-            background: #121212;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        .card {
-            background: #1e1e1e;
-            padding: 45px 30px;
-            border-radius: 20px;
-            max-width: 450px;
-            width: 100%;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-            border-top: 4px solid #ffd700;
+            background: #000;
+            color: #fff;
+            padding: 30px 20px;
             text-align: center;
         }
-        .payment-img {
-            width: 100%;
-            max-width: 320px;
-            border-radius: 14px;
-            margin: 20px auto;
-            display: block;
+        .box {
+            max-width: 450px;
+            margin: 0 auto;
+            padding: 35px 30px;
+            border: 1px solid #ffd700;
+            border-radius: 20px;
+            background: #0a0a0a;
         }
-        .card h1 {
+        h2 {
             color: #ffd700;
-            margin-bottom: 15px;
-            font-size: 28px;
+            margin-bottom: 10px;
+            font-size: 24px;
         }
-        .info-box {
-            background: #292929;
-            padding: 20px;
-            border-radius: 12px;
+        .timer {
+            color: #ff3333;
+            font-size: 26px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        .info {
             margin: 12px 0;
-            text-align: left;
-        }
-        .info-box p {
-            color: #eee;
             font-size: 16px;
-            margin: 8px 0;
+            color: #fff;
         }
         .label {
             color: #ffd700;
             font-weight: bold;
         }
+        .qr-img {
+            width: 220px;
+            height: 220px;
+            margin: 20px auto;
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            object-fit: cover;
+        }
         .warn {
-            background: #292520;
-            border-left: 4px solid #ff9800;
-            padding: 16px;
-            margin: 20px 0;
-            border-radius: 8px;
-            color: #ffcc80;
-            text-align: left;
-            font-size: 15px;
+            color: #ff4444;
+            margin: 10px 0;
+            font-size: 14px;
         }
-        .btns {
-            text-align: center;
-            margin-top: 20px;
+        .back {
+            margin-top: 30px;
         }
-        .btn {
-            display: inline-block;
-            padding: 15px 28px;
-            border-radius: 50px;
-            font-weight: bold;
+        .back a {
+            color: #ffd700;
             text-decoration: none;
-            margin: 6px;
-            transition: 0.3s;
-        }
-        .btn-back { background: #444; color: white; }
-        .btn-wa { background: #25D366; color: white; }
-        .btn:hover { transform: translateY(-3px); }
-        .footer {
-            margin-top: 40px;
-            color: #666;
-            font-size: 12px;
         }
     </style>
 </head>
 <body>
 
-<div class="card">
-    <h1>📌 TNG 付款码</h1>
-    <img class="payment-img" src="https://i.imgur.com/rcRvMNx.jpeg">
+<div class="box">
+    <h2>💰 付款页面</h2>
+    <p>请在限时内完成付款</p>
+    <div class="timer" id="count">5:00</div>
 
-    <div class="info-box">
-        <p><span class="label">姓名：</span> Alden Lau</p>
-        <p><span class="label">号码：</span> 017-8541111</p>
+    <div class="info">
+        <span class="label">姓名:</span> Alden
+    </div>
+    <div class="info">
+        <span class="label">号码:</span> 0178541111
     </div>
 
-    <div class="warn">⚠️ 付款后请务必发送截图给客服，否则会延迟处理！</div>
+    <!-- 这里是你最后发我的正确图片 -->
+    <img src="https://i.imgur.com/rcRvMNx.jpeg" class="qr-img">
 
-    <div class="btns">
-        <a href="price.html" class="btn btn-back">返回价格表</a>
-        <a href="https://wa.me/60178541111" class="btn btn-wa" target="_blank">发送截图</a>
+    <div class="warn">
+        ⚠️ 5分钟未付款自动取消订单
     </div>
-
-    <div class="footer">© Alden Service 2025</div>
 </div>
+
+<div class="back">
+    <a href="index.html">← 返回首页</a>
+</div>
+
+<script>
+let sec = 300;
+function timer() {
+    let m = Math.floor(sec / 60);
+    let s = sec % 60;
+    document.getElementById("count").innerText = `${m}:${s < 10 ? "0"+s : s}`;
+    sec--;
+    if(sec < 0) {
+        alert("付款时间已过期！请重新下单");
+        window.location.href = "form.html";
+    }
+}
+setInterval(timer, 1000);
+</script>
 
 </body>
 </html>

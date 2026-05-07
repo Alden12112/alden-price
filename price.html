@@ -1,145 +1,81 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>价格列表 | Alden</title>
+    <title>价格表</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, sans-serif;
+            font-family: sans-serif;
         }
         body {
-            background: #121212;
-            color: white;
+            background: #000;
+            color: #fff;
             padding: 40px 20px;
-        }
-        .header {
             text-align: center;
+        }
+        h2 {
+            color: #ffd700;
             margin-bottom: 30px;
         }
-        .header h1 {
-            font-size: 34px;
-            color: #ffd700;
-        }
-        .header p {
-            color: #aaa;
-            margin-top: 8px;
-            font-size: 16px;
-        }
-        .steps {
-            background: #1e1e1e;
-            padding: 22px;
-            border-radius: 16px;
-            max-width: 500px;
-            margin: 0 auto 30px;
-            border-left: 4px solid #ffd700;
-        }
-        .steps h3 {
-            color: #ffd700;
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-        .steps p {
-            color: #ccc;
-            line-height: 1.6;
-            font-size: 15px;
-        }
-        .card {
-            background: #1e1e1e;
-            border-radius: 16px;
-            padding: 28px;
-            margin: 18px auto;
-            max-width: 500px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
-        .card h2 {
-            color: #ffd700;
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 21px;
-        }
         .item {
-            display: flex;
-            justify-content: space-between;
-            padding: 14px 0;
-            border-bottom: 1px solid #333;
-            color: #eee;
-            font-size: 16px;
+            font-size: 18px;
+            margin: 12px 0;
+            color: #fff;
         }
-        .item:last-child {
-            border-bottom: none;
-        }
-        .price {
-            color: #ffd700;
-            font-weight: bold;
-        }
-        .btns {
-            text-align: center;
-            margin-top: 40px;
+        .btn-group {
+            margin: 40px 0;
         }
         .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            border-radius: 50px;
+            display: block;
+            width: 280px;
+            margin: 12px auto;
+            padding: 16px;
+            border-radius: 12px;
             font-weight: bold;
             text-decoration: none;
-            margin: 8px;
-            transition: 0.3s;
-            font-size: 15px;
         }
-        .btn-tng { background: #00BFFF; color: white; }
-        .btn-wa { background: #25D366; color: white; }
-        .btn-home { background: #444; color: white; }
-        .btn:hover { transform: translateY(-3px); }
-        .footer {
-            text-align: center;
-            margin-top: 50px;
-            color: #666;
-            font-size: 13px;
+        .wa {
+            background: #25D366;
+            color: #fff;
+        }
+        .form-btn {
+            background: #ffd700;
+            color: #000;
+            margin-top: 20px;
+        }
+        .back {
+            margin-top: 30px;
+        }
+        .back a {
+            color: #ffd700;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>官方价格列表</h1>
-        <p>Premium Topup Service | 24小时在线处理</p>
+    <h2>🍎 苹果充值卡</h2>
+
+    <p class="item">RM 10</p>
+    <p class="item">RM 30</p>
+    <p class="item">RM 50</p>
+    <p class="item">RM 100</p>
+    <p class="item">RM 300</p>
+    <p class="item">RM 648</p>
+
+    <div class="btn-group">
+        <a href="https://wa.me/60178541111" class="btn wa">联系客服</a>
     </div>
 
-    <div class="steps">
-        <h3>📌 下单流程</h3>
-        <p>1. 选择商品 → 2. 付款到TNG → 3. 发送截图 → 4. 极速处理</p>
-    </div>
+    <a href="form.html" class="btn form-btn">我要代充 → 填写信息</a>
 
-    <div class="card">
-        <h2>🍎 苹果卡充值</h2>
-        <div class="item"><span>RM10</span><span class="price">RM11.00</span></div>
-        <div class="item"><span>RM30</span><span class="price">RM32.00</span></div>
-        <div class="item"><span>RM50</span><span class="price">RM53.00</span></div>
-        <div class="item"><span>RM100</span><span class="price">RM105.00</span></div>
+    <div class="back">
+        <a href="index.html">← 返回首页</a>
     </div>
-
-    <div class="card">
-        <h2>⚡ 游戏代充</h2>
-        <div class="item"><span>各类游戏充值</span><span class="price">RM5起</span></div>
-        <div class="item"><span>会员/订阅充值</span><span class="price">RM8起</span></div>
-    </div>
-
-    <div class="card">
-        <h2>🎁 道具代送</h2>
-        <div class="item"><span>皮肤/道具/礼包</span><span class="price">RM6起</span></div>
-    </div>
-
-    <div class="btns">
-        <a href="tng.html" class="btn btn-tng">前往付款</a>
-        <a href="https://wa.me/60178541111" class="btn btn-wa" target="_blank">联系客服</a>
-        <a href="index.html" class="btn btn-home">返回首页</a>
-    </div>
-
-    <div class="footer">© Alden Service 2025 | All Rights Reserved</div>
 
 </body>
 </html>
