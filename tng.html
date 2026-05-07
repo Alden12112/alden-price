@@ -3,64 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>付款 TNG - Alden</title>
+    <title>付款信息 | Alden</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
         }
         body {
-            background: #f2f2f2;
-            padding: 40px 20px;
-            text-align: center;
+            background: #121212;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
         }
         .card {
-            max-width: 450px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px 30px;
+            background: #1e1e1e;
+            padding: 45px 30px;
             border-radius: 20px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            border-top: 4px solid #ffd700;
+            text-align: center;
         }
-        h1 {
-            margin-bottom: 20px;
-            color: #333;
+        .payment-img {
+            width: 100%;
+            max-width: 320px;
+            border-radius: 14px;
+            margin: 20px auto;
+            display: block;
         }
-        .info {
+        .card h1 {
+            color: #ffd700;
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+        .info-box {
+            background: #292929;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 12px 0;
             text-align: left;
-            margin: 20px 0;
         }
-        .info p {
-            background: #f5f5f5;
-            padding: 12px;
-            border-radius: 8px;
-            margin: 10px 0;
+        .info-box p {
+            color: #eee;
             font-size: 16px;
+            margin: 8px 0;
+        }
+        .label {
+            color: #ffd700;
+            font-weight: bold;
+        }
+        .warn {
+            background: #292520;
+            border-left: 4px solid #ff9800;
+            padding: 16px;
+            margin: 20px 0;
+            border-radius: 8px;
+            color: #ffcc80;
+            text-align: left;
+            font-size: 15px;
+        }
+        .btns {
+            text-align: center;
+            margin-top: 20px;
         }
         .btn {
-            padding: 12px 25px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: bold;
             display: inline-block;
-            margin: 5px;
+            padding: 15px 28px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 6px;
+            transition: 0.3s;
         }
-        .price { background: #ff4d4d; color: white; }
-        .wa { background: #25D366; color: white; }
+        .btn-back { background: #444; color: white; }
+        .btn-wa { background: #25D366; color: white; }
+        .btn:hover { transform: translateY(-3px); }
+        .footer {
+            margin-top: 40px;
+            color: #666;
+            font-size: 12px;
+        }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>📌 付款到 TNG</h1>
-        <div class="info">
-            <p><strong>名字：</strong> ALDEN</p>
-            <p><strong>号码：</strong> 0178541111</p>
-            <p><strong>提醒：</strong> 付款后请发截图 请删除0</p>
-        </div>
-        <a href="price.html" class="btn price">← 回价格表</a>
-        <a href="https://wa.me/60178541111" class="btn wa" target="_blank">💬 发截图给我</a>
+
+<div class="card">
+    <h1>📌 TNG 付款码</h1>
+    <img class="payment-img" src="https://i.imgur.com/rcRvMNx.jpeg">
+
+    <div class="info-box">
+        <p><span class="label">姓名：</span> Alden Lau</p>
+        <p><span class="label">号码：</span> 017-8541111</p>
     </div>
+
+    <div class="warn">⚠️ 付款后请务必发送截图给客服，否则会延迟处理！</div>
+
+    <div class="btns">
+        <a href="price.html" class="btn btn-back">返回价格表</a>
+        <a href="https://wa.me/60178541111" class="btn btn-wa" target="_blank">发送截图</a>
+    </div>
+
+    <div class="footer">© Alden Service 2025</div>
+</div>
+
 </body>
 </html>

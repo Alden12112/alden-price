@@ -3,71 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alden 价格网站</title>
+    <title>Alden | 专业充值服务</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
         }
-        .cover {
-            width: 100vw;
-            height: 100vh;
-            background: linear-gradient(135deg, #ff4d4d, #ff8a3d);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        body {
+            background: linear-gradient(135deg, #121212, #1e1e1e);
             color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
             padding: 20px;
         }
-        .cover h1 {
-            font-size: 36px;
-            margin-bottom: 15px;
-            animation: zoom 2s infinite alternate;
+        .container {
+            max-width: 500px;
+            width: 100%;
         }
-        .cover p {
-            font-size: 18px;
+        h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #ffd700, #ffed4b);
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+        p {
+            font-size: 17px;
+            color: #ccc;
             margin-bottom: 40px;
-            animation: fade 2s infinite alternate;
         }
         .btn {
-            padding: 15px 35px;
-            background: white;
-            color: #ff4d4d;
+            display: inline-block;
+            padding: 18px 42px;
             border-radius: 50px;
-            font-size: 18px;
+            font-size: 17px;
             font-weight: bold;
             text-decoration: none;
-            animation: zoom 1.2s infinite alternate;
-            margin-bottom: 15px;
+            margin: 10px;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
         }
-        .whatsapp {
+        .btn-primary {
+            background: linear-gradient(90deg, #ffd700, #ffc107);
+            color: #121212;
+        }
+        .btn-wa {
             background: #25D366;
             color: white;
-            padding: 12px 25px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: bold;
         }
-        @keyframes zoom {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.08); }
+        .btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
         }
-        @keyframes fade {
-            0% { opacity: 0.8; }
-            100% { opacity: 1; }
+        .badge {
+            margin-top: 30px;
+            color: #ffd700;
+            font-size: 15px;
+        }
+        .footer {
+            margin-top: 40px;
+            color: #777;
+            font-size: 13px;
         }
     </style>
 </head>
 <body>
-    <div class="cover">
-        <h1>欢迎来到 Alden 的价格网站</h1>
-        <p>点击下面进入网站查看最新价格</p>
-        <a href="price.html" class="btn">进入网站</a>
-        <a href="https://wa.me/60178541111" class="whatsapp" target="_blank">💬 联系我 WhatsApp60178541111</a>
+    <div class="container">
+        <h1>Alden Premium</h1>
+        <p>全马最安全 · 最快处理 · 信誉保证 · 24小时在线</p>
+
+        <a href="price.html" class="btn btn-primary">进入价格表</a>
+        <a href="https://wa.me/60178541111" class="btn btn-wa" target="_blank">联系客服</a>
+
+        <div class="badge">✅ 100% 安全可靠 | ✅ 极速处理订单</div>
+        <div class="footer">© Alden Service 2025 | All Rights Reserved</div>
     </div>
 </body>
 </html>
