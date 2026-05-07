@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>价格表 - Alden</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: #f8f9fa;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .title {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .box {
+            max-width: 500px;
+            margin: 20px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        .box h2 {
+            color: #ff6b6b;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .item .name {
+            font-size: 18px;
+        }
+        .item .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff4444;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="title">Alden 的价格表</h1>
+
+    <!-- 苹果卡 -->
+    <div class="box">
+        <h2>🍎 苹果卡</h2>
+        <div class="item"><span class="name">RM10</span><span class="price">RM11.00</span></div>
+        <div class="item"><span class="name">RM30</span><span class="price">RM32.00</span></div>
+        <div class="item"><span class="name">RM50</span><span class="price">RM53.00</span></div>
+        <div class="item"><span class="name">RM100</span><span class="price">RM105.00</span></div>
+    </div>
+
+    <!-- 代充 -->
+    <div class="box">
+        <h2>⚡ 代充</h2>
+        <div class="item"><span class="name">游戏代充</span><span class="price">RM5.00起</span></div>
+        <div class="item"><span class="name">会员代充</span><span class="price">RM8.00起</span></div>
+        <div class="item"><span class="name">平台代充</span><span class="price">RM3.00起</span></div>
+    </div>
+
+    <!-- 代送 -->
+    <div class="box">
+        <h2>🎁 代送</h2>
+        <div class="item"><span class="name">道具代送</span><span class="price">RM6.00起</span></div>
+        <div class="item"><span class="name">皮肤代送</span><span class="price">RM10.00起</span></div>
+        <div class="item"><span class="name">礼包代送</span><span class="price">RM15.00起</span></div>
+    </div>
+
+</body>
+</html>

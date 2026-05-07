@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>价格网站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .cover {
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .cover h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: titleZoom 2s infinite alternate;
+        }
+        .cover p {
+            font-size: 22px;
+            margin-bottom: 50px;
+            animation: textFade 2s infinite alternate;
+        }
+        .cover .btn {
+            padding: 16px 45px;
+            background: white;
+            color: #ff6b6b;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            animation: zoom 1.2s infinite alternate;
+        }
+        @keyframes titleZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+        @keyframes textFade {
+            0% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+        @keyframes zoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.15); }
+        }
+    </style>
+</head>
+<body>
+    <div class="cover">
+        <h1>欢迎来到alden的价格网站</h1>
+        <p>点击下面进入网站可以看到价格</p>
+        <!-- 点这里会跳转到价格页面！-->
+        <a href="price.html" class="btn">进入网站</a>
+    </div>
+</body>
+</html>
