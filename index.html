@@ -3,65 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>价格网站</title>
+    <title>Alden 价格网站</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
         .cover {
             width: 100vw;
             height: 100vh;
-            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            background: linear-gradient(135deg, #ff4d4d, #ff8a3d);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             color: white;
-            font-family: Arial, sans-serif;
             text-align: center;
+            padding: 20px;
         }
         .cover h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            animation: titleZoom 2s infinite alternate;
+            font-size: 36px;
+            margin-bottom: 15px;
+            animation: zoom 2s infinite alternate;
         }
         .cover p {
-            font-size: 22px;
-            margin-bottom: 50px;
-            animation: textFade 2s infinite alternate;
+            font-size: 18px;
+            margin-bottom: 40px;
+            animation: fade 2s infinite alternate;
         }
-        .cover .btn {
-            padding: 16px 45px;
+        .btn {
+            padding: 15px 35px;
             background: white;
-            color: #ff6b6b;
+            color: #ff4d4d;
             border-radius: 50px;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
             text-decoration: none;
             animation: zoom 1.2s infinite alternate;
+            margin-bottom: 15px;
         }
-        @keyframes titleZoom {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.05); }
-        }
-        @keyframes textFade {
-            0% { opacity: 0.8; }
-            100% { opacity: 1; }
+        .whatsapp {
+            background: #25D366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
         }
         @keyframes zoom {
             0% { transform: scale(1); }
-            100% { transform: scale(1.15); }
+            100% { transform: scale(1.08); }
+        }
+        @keyframes fade {
+            0% { opacity: 0.8; }
+            100% { opacity: 1; }
         }
     </style>
 </head>
 <body>
     <div class="cover">
-        <h1>欢迎来到alden的价格网站</h1>
-        <p>点击下面进入网站可以看到价格</p>
-        <!-- 点这里会跳转到价格页面！-->
+        <h1>欢迎来到 Alden 的价格网站</h1>
+        <p>点击下面进入网站查看最新价格</p>
         <a href="price.html" class="btn">进入网站</a>
+        <a href="https://wa.me/60123456789" class="whatsapp" target="_blank">💬 联系我 WhatsApp0178541111</a>
     </div>
 </body>
 </html>

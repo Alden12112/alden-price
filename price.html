@@ -12,14 +12,18 @@
             font-family: Arial, sans-serif;
         }
         body {
-            background: #f8f9fa;
+            background: #f2f2f2;
             padding: 30px 20px;
             text-align: center;
         }
         .title {
-            font-size: 32px;
-            margin-bottom: 30px;
+            font-size: 28px;
+            margin-bottom: 10px;
             color: #333;
+        }
+        .desc {
+            margin-bottom: 30px;
+            color: #666;
         }
         .box {
             max-width: 500px;
@@ -31,7 +35,7 @@
             text-align: left;
         }
         .box h2 {
-            color: #ff6b6b;
+            color: #ff4d4d;
             margin-bottom: 15px;
             text-align: center;
         }
@@ -41,21 +45,42 @@
             padding: 10px 0;
             border-bottom: 1px solid #eee;
         }
-        .item .name {
-            font-size: 18px;
+        .item .name { font-size: 17px; }
+        .item .price { font-size: 17px; font-weight: bold; color: #ff3333; }
+        .steps {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 500px;
+            text-align: left;
         }
-        .item .price {
-            font-size: 18px;
+        .steps h3 { margin-bottom: 10px; color: #0277bd; }
+        .steps p { margin: 5px 0; font-size: 15px; }
+        .btn-group { margin-top: 20px; }
+        .btn {
+            padding: 12px 25px;
+            border-radius: 10px;
+            text-decoration: none;
             font-weight: bold;
-            color: #ff4444;
+            display: inline-block;
+            margin: 5px;
         }
+        .tng { background: #00BFFF; color: white; }
+        .wa { background: #25D366; color: white; }
+        .home { background: #666; color: white; }
     </style>
 </head>
 <body>
 
-    <h1 class="title">Alden 的价格表</h1>
+    <h1 class="title">Alden 官方价格表</h1>
+    <p class="desc">全马最低价 · 快速处理 · 信誉保证</p>
 
-    <!-- 苹果卡 -->
+    <div class="steps">
+        <h3>📌 下单步骤</h3>
+        <p>1. 查看价格 → 2. 付款 → 3. 发截图 → 4. 秒处理</p>
+    </div>
+
     <div class="box">
         <h2>🍎 苹果卡</h2>
         <div class="item"><span class="name">RM10</span><span class="price">RM11.00</span></div>
@@ -64,20 +89,21 @@
         <div class="item"><span class="name">RM100</span><span class="price">RM105.00</span></div>
     </div>
 
-    <!-- 代充 -->
     <div class="box">
         <h2>⚡ 代充</h2>
         <div class="item"><span class="name">游戏代充</span><span class="price">RM5.00起</span></div>
         <div class="item"><span class="name">会员代充</span><span class="price">RM8.00起</span></div>
-        <div class="item"><span class="name">平台代充</span><span class="price">RM3.00起</span></div>
     </div>
 
-    <!-- 代送 -->
     <div class="box">
         <h2>🎁 代送</h2>
-        <div class="item"><span class="name">道具代送</span><span class="price">RM6.00起</span></div>
-        <div class="item"><span class="name">皮肤代送</span><span class="price">RM10.00起</span></div>
-        <div class="item"><span class="name">礼包代送</span><span class="price">RM15.00起</span></div>
+        <div class="item"><span class="name">道具 / 皮肤 / 礼包</span><span class="price">RM6.00起</span></div>
+    </div>
+
+    <div class="btn-group">
+        <a href="tng.html" class="btn tng">👉 去付款 TNG</a>
+        <a href="https://wa.me/60123456789" class="btn wa" target="_blank">💬 联系我</a>
+        <a href="index.html" class="btn home">🏠 回首页</a>
     </div>
 
 </body>
