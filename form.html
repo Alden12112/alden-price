@@ -86,10 +86,13 @@
             <label>微信 / QQ</label>
             <input type="text" id="contact" required>
         </div>
+
+        <!-- 充值数量 自动加载！ -->
         <div class="input-group">
             <label>充值数量</label>
-            <input type="text" id="amount" required>
+            <input type="text" id="amount" readonly required>
         </div>
+
         <div class="input-group">
             <label>是否实名</label>
             <select id="real" required>
@@ -102,34 +105,32 @@
     </form>
 
     <div class="back">
-        <a href="price.html">← 返回价格表</a>
+        <a href="javascript:history.back()">← 返回</a>
     </div>
 </div>
 
 <script>
+// 自动获取点卷数量并填进去
+const urlParams = new URLSearchParams(window.location.search);
+const num = urlParams.get('num');
+if(num){
+    document.getElementById("amount").value = num;
+}
+
+// 提交发你 WhatsApp
 document.getElementById("orderForm").addEventListener("submit", function(e){
     e.preventDefault();
-
     let nick = document.getElementById("nick").value;
     let sys = document.getElementById("sys").value;
     let contact = document.getElementById("contact").value;
     let amount = document.getElementById("amount").value;
     let real = document.getElementById("real").value;
 
-    let msg = "新订单！%0A";
-    msg += "游戏昵称：" + nick + "%0A";
-    msg += "系统：" + sys + "%0A";
-    msg += "联系方式：" + contact + "%0A";
-    msg += "充值数量：" + amount + "%0A";
-    msg += "实名：" + real;
-
-    // 直接发送到你的 WHATSAPP
-    window.open("https://wa.me/60178541111?text=" + msg);
-
-    alert("提交成功！5秒后跳转到付款页面");
-    setTimeout(function(){
-        window.location.href = "tng.html";
-    },5000);
+    let msg = "新订单！%0A游戏昵称："+nick+"%0A系统："+sys+"%0A联系方式："+contact+"%0A充值数量："+amount+"%0A实名："+real;
+    window.open("https://wa.me/60178541111?text="+msg);
+    
+    alert("提交成功！5秒后跳付款");
+    setTimeout(()=>{window.location.href="tng.html"},5000);
 });
 </script>
 </body>

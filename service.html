@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>价格</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; font-family:sans-serif; }
+        body { background:#000; color:#fff; padding:50px 20px; text-align:center; }
+        h2 { color:#ffd700; margin-bottom:30px; }
+        .price {
+            font-size:16px;
+            font-weight:bold;
+            color:#ffd700;
+            margin:10px 0;
+            cursor:pointer;
+            display:block;
+            text-decoration: none;
+            line-height:1.4;
+        }
+        .desc {
+            font-size:14px;
+            color:#ccc;
+            margin-bottom:20px;
+            line-height:1.4;
+        }
+        .back { margin-top:40px; }
+        .back a { color:#ffd700; text-decoration:none; }
+    </style>
+</head>
+<body>
+
+<h2 id="title">加载中...</h2>
+<div class="desc" id="desc"></div>
+<div id="priceContent"></div>
+
+<div class="back">
+    <a href="daichong.html">← 返回</a>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const type = params.get('type');
+const title = document.getElementById('title');
+const desc = document.getElementById('desc');
+const content = document.getElementById('priceContent');
+
+const data = {
+    "代充": {
+        desc: "王者/和平慢充0-3小时到账 | 官网充值不上游戏",
+        price: `
+            <a class="price" href="form.html?area=${params.get('area')}&num=全部腾讯游戏1000点卷">全部腾讯游戏 1000点卷 = RM57.50</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=全部腾讯游戏2000点卷">全部腾讯游戏 2000点卷 = RM118.50</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=王者苹果1000点卷">王者苹果 1000点卷 = RM56.50</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=王者苹果2000点卷">王者苹果 2000点卷 = RM115.50</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=和平苹果1000点卷">和平苹果 1000点卷 = RM56.50</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=和平苹果2000/2176点卷">和平苹果 2000/2176点卷 = RM115.50（看号）</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=全部腾讯游戏心悦卡98元">全部腾讯游戏心悦卡 98元 = RM58.50慢充</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=王者iOS扫码5018点卷">王者iOS扫码 5018点卷+138绑定 = RM272</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=王者iOS扫码10006点卷">王者iOS扫码 10006点卷+288绑定 = RM535</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=王者安卓10000点卷">王者安卓 10000点卷 = RM575</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=王者苹果10000点卷">王者苹果 10000点卷 = RM555</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=和平安卓10000点卷">和平安卓 10000点卷 = RM575</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=和平苹果10000点卷">和平苹果 10000点卷 = RM555</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=无畏手游10000点卷">无畏手游 10000点卷 = RM575</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=金铲铲互通10000点卷">金铲铲（互通）10000点卷 = RM575</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=三角洲互通10000点卷">三角洲（互通）10000点卷 = RM575</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=元梦互通10000点卷">元梦（互通）10000点卷 = RM575</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=火影金币/点卷10000">火影（金币/点卷）10000 = RM575</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=648元充值">648元充值 = RM382</a>
+        `
+    },
+    "代送": {
+        desc: "和平大转盘 / 转移系统代送",
+        price: `
+            <a class="price" href="form.html?area=${params.get('area')}&num=和平大转盘960碎片">和平大转盘 960碎片 = RM122</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=和平大转盘520碎片">和平大转盘 520碎片 = RM55</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=和平大转盘1车币">和平大转盘 1车币 = RM345</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=和平大转盘3车币">和平大转盘 3车币 = RM1025</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=和平大转盘576碎片载具置换币">和平大转盘 576碎片载具置换币 = RM87</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=和平大转盘600碎片升级徽章">和平大转盘 600碎片升级徽章 = RM89</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=和平大转盘1200碎片车辆升级徽章">和平大转盘 1200碎片车辆升级徽章 = RM162</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=和平大转盘1800碎片">和平大转盘 1800碎片 = RM239</a>
+        `
+    },
+    "苹果卡": {
+        desc: "苹果卡可叠加 | Pgk系列",
+        price: `
+            <a class="price" href="form.html?area=${params.get('area')}&num=Pgk10苹果卡">Pgk10 = RM7.50</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=Pgk20苹果卡">Pgk20 = RM14</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=Pgk50苹果卡">Pgk50 = RM33</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=Pgk100苹果卡">Pgk100 = RM63</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=Pgk200苹果卡">Pgk200 = RM125</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=Pgk500苹果卡">Pgk500 = RM308</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=Pgk650苹果卡">Pgk650 = RM395</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=Pgk1000苹果卡">Pgk1000 = RM600</a>
+        `
+    },
+    "转区": {
+        desc: "王者荣耀 / 和平精英 转区服务",
+        price: `
+            <a class="price" href="form.html?area=${params.get('area')}&num=王者转移系统">王者转移系统 = RM70（只需扫码）</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=和平转移系统">和平转移系统 = RM65（只需扫码）</a>
+        `
+    },
+    "返厂皮肤": {
+        desc: "王者荣耀 + 和平精英 返厂皮肤代抽",
+        price: `
+            <a class="price" href="form.html?area=${params.get('area')}&num=吕布遇见神鼓">吕布遇见神鼓 = 255</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=貂蝉遇见胡旋">貂蝉遇见胡旋 = 115</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=张飞百相守梦">张飞百相守梦 = 255</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=后羿无尽星芒">后羿无尽星芒 = 255</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=项羽职棒王牌">项羽职棒王牌 = 135</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=赵云嘻哈天王">赵云嘻哈天王 = 135</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=鲁班七号乒乒小将">鲁班七号乒乒小将 = 135</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=天网终结者">天网终结者 = 300</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=黄油吐司">黄油吐司 = 90</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=焦糖可颂">焦糖可颂 = 90</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=香酥铜鱼烧">香酥铜鱼烧 = 90</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=熔岩游骑兵">熔岩游骑兵 = 53</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=暖暖向日葵">暖暖向日葵 = 63</a>
+        `
+    },
+    "代抽": {
+        desc: "和平精英小马宝莉联名款 代抽包出 🐴",
+        price: `
+            <a class="price" href="form.html?area=${params.get('area')}&num=小马宝莉随机一个RM35">RM35 小马宝莉联名款随机一个</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=小马宝莉全套包出RM720">小马宝莉全套包出 = RM720</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=小马宝莉随机一个RM40">小马宝莉联名款随机一个 = RM40</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=小马宝莉随机两个RM70">小马宝莉联名款随机两个 = RM70</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=小马宝莉随机五个RM180">小马宝莉联名款随机5个 = RM180</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=指定柔柔RM145">指定柔柔联名款 = RM145</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=指定碧琪RM145">碧琪联名款 = RM145</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=指定珍奇RM145">珍奇联名款 = RM145</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=指定雾鬃RM145">雾鬃联名款 = RM145</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=指定梨子酱RM145">梨子酱联名款 = RM145</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=隐藏款+全部普通RM350苹果">隐藏款随机1个+全部普通款 = RM350（苹果）</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=隐藏款+全部普通RM365安卓">隐藏款随机1个+全部普通款 = RM365（安卓）</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=指定隐藏宇宙公主RM605">指定隐藏-宇宙公主 = RM605</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=指定隐藏月亮公主RM606">指定隐藏-月亮公主 = RM606</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=代抽烟弹日月星辰RM170">代抽烟弹 日月星辰 = RM170</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=紫悦联名款指定RM170">紫悦联名款指定套装 = RM170【包出】</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=紫悦联名款全套RM180">紫悦联名款全套 = RM180【包出】</a>
+        `
+    },
+    "人脸": {
+        desc: "健康系统实名/人脸/游戏锁",
+        price: `
+            <a class="price" href="form.html?area=${params.get('area')}&num=健康系统实名">健康系统实名 = RM0.75（帮弄RM2.50）</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=全部外二改资料">全部外二改资料 = RM35</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=首次设备/战神">首次设备/战神 = RM65</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=全部外二改资料">全部外二改资料 = RM105</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=循环人脸">循环人脸 = RM125</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=游戏锁/赠礼风险">游戏锁/赠礼风险 = RM175</a>
+        `
+    },
+    "RMB汇率": {
+        desc: "RMB兑换RM汇率",
+        price: `
+            <a class="price" href="form.html?area=${params.get('area')}&num=出1000mb起">出1000mb起 = 1.65汇率</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=出5000mb起">出5000mb起 = 1.66汇率</a>
+            <a class="price" href="form.html?area=${params.get('area')}&num=出10000mb起">出10000mb起 = 1.67汇率</a>
+        `
+    }
+};
+
+title.innerText = type + " 价格";
+desc.innerText = data[type].desc;
+content.innerHTML = data[type].price;
+</script>
+
+</body>
+</html>
