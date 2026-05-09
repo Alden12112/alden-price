@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>专业游戏代充 - 安全快速</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+        body{
+            background:#0a0a0a;
+            color:white;
+            padding:20px;
+        }
+        .container{
+            max-width:500px;
+            margin:auto;
+        }
+        .title{
+            text-align:center;
+            font-size:26px;
+            margin-bottom:10px;
+            color:#00faff;
+        }
+        .sub{
+            text-align:center;
+            color:#aaa;
+            margin-bottom:30px;
+        }
+        .card{
+            background:#141414;
+            padding:16px;
+            border-radius:12px;
+            margin-bottom:12px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            border:1px solid #222;
+        }
+        .card button{
+            background:#00faff;
+            border:none;
+            padding:8px 12px;
+            border-radius:6px;
+            font-weight:bold;
+            cursor:pointer;
+        }
+        .form{
+            background:#141414;
+            padding:25px;
+            border-radius:14px;
+            margin-top:30px;
+            display:none;
+        }
+        .form h3{
+            margin-bottom:15px;
+            text-align:center;
+            color:#00faff;
+        }
+        input,select{
+            width:100%;
+            padding:12px;
+            margin:8px 0;
+            background:#222;
+            color:white;
+            border:none;
+            border-radius:8px;
+        }
+        .submit{
+            width:100%;
+            padding:14px;
+            background:#00ff9d;
+            color:black;
+            font-weight:bold;
+            border:none;
+            border-radius:8px;
+            margin-top:10px;
+            cursor:pointer;
+        }
+        .hide{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="title">🎮 专业游戏代充</h1>
+    <p class="sub">安全快速｜全网最低｜信誉第一</p>
+
+    <h3 style="color:#00faff;margin:20px 0 10px">🪙 点卷代充</h3>
+    <div class="card"><span>1000 点卷</span><button onclick="go('1000点卷')">立即下单</button></div>
+    <div class="card"><span>5000 点卷</span><button onclick="go('5000点卷')">立即下单</button></div>
+    <div class="card"><span>10000 点卷</span><button onclick="go('10000点卷')">立即下单</button></div>
+
+    <h3 style="color:#00faff;margin:20px 0 10px">🎁 道具代送</h3>
+    <div class="card"><span>大转盘碎片</span><button onclick="go('大转盘碎片')">立即下单</button></div>
+    <div class="card"><span>升级徽章</span><button onclick="go('升级徽章')">立即下单</button></div>
+
+    <h3 style="color:#00faff;margin:20px 0 10px">🎰 军需代抽</h3>
+    <div class="card"><span>代抽套装</span><button onclick="go('代抽套装')">立即下单</button></div>
+    <div class="card"><span>代抽皮肤</span><button onclick="go('代抽皮肤')">立即下单</button></div>
+
+    <!-- 下单表单 -->
+    <div class="form" id="formBox">
+        <h3>📝 订单资料</h3>
+        <input placeholder="游戏昵称" id="nick"><br>
+        <input placeholder="游戏ID" id="uid"><br>
+        <select id="sys">
+            <option>QQ</option>
+            <option>微信</option>
+        </select>
+        <div id="dianBox" class="hide">
+            <input placeholder="号上有多少点卷" id="dian"><br>
+        </div>
+        <input id="item" readonly><br>
+        <button class="submit" onclick="send()">提交订单</button>
+    </div>
+</div>
+
+<script>
+let nowItem = "";
+function go(item){
+    nowItem = item;
+    document.getElementById("item").value = item;
+    document.getElementById("formBox").style.display = "block";
+    
+    if(item.includes("代抽")){
+        document.getElementById("dianBox").classList.remove("hide");
+    }else{
+        document.getElementById("dianBox").classList.add("hide");
+    }
+}
+
+function send(){
+    let nick = document.getElementById("nick").value;
+    let uid = document.getElementById("uid").value;
+    let sys = document.getElementById("sys").value;
+    let item = nowItem;
+    let dian = document.getElementById("dian").value;
+
+    let text = "🧾 新订单%0A";
+    text += "游戏昵称："+nick+"%0A";
+    text += "游戏ID："+uid+"%0A";
+    text += "系统："+sys+"%0A";
+    if(nowItem.includes("代抽")){
+        text += "号上点卷："+dian+"%0A";
+    }
+    text += "项目："+item;
+
+    window.open("https://wa.me/60178541111?text="+text);
+}
+</script>
+
+</body>
+</html>
