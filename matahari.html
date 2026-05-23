@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>休闲游戏平台</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        background: #000;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        min-height: 100vh;
+        position: relative;
+        z-index: 1;
+    }
+    /* 全屏模糊背景 电脑手机自适应 */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-image: url('https://i.imgur.com/4H0Kxa4.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: blur(6px);
+        opacity: 0.4;
+        z-index: -1;
+    }
+    .container {
+        max-width: 480px;
+        margin: 0 auto;
+        width: 100%;
+    }
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    .btn-red {
+        background: linear-gradient(90deg, #ff2222, #ff6600);
+        color: #fff;
+        font-weight: bold;
+        border-radius: 6px;
+    }
+    .whatsapp-btn {
+        background: #25d366;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 999px;
+    }
+    .card-dark {
+        background: #111;
+        border-radius: 8px;
+    }
+    .game-item {
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .float-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 999;
+    }
+    .click-scale:active {
+        transform: scale(0.96);
+        transition: 0.15s;
+    }
+
+    .row-wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 12px;
+    }
+    .box-base {
+        width: 47%;
+        padding: 8px 12px;
+        border-radius: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .jackpot-box {
+        background: linear-gradient(135deg, #2b1860, #1a1040);
+        border: 2px solid #ffd700;
+        box-shadow: 0 0 10px rgba(255,215,0,0.3);
+        position: relative;
+    }
+    .jackpot-box::before,
+    .jackpot-box::after {
+        content: '🪙';
+        position: absolute;
+        font-size: 14px;
+    }
+    .jackpot-box::before {
+        top: -6px;
+        left: -6px;
+    }
+    .jackpot-box::after {
+        bottom: -6px;
+        right: -6px;
+    }
+    .title-text {
+        font-size: 14px;
+        font-weight: bold;
+        animation: colorShift 1s infinite alternate;
+    }
+    @keyframes colorShift {
+        0% { color: #ffcc00; }
+        100% { color: #ffffff; }
+    }
+    .num-text {
+        font-size: 14px;
+        font-weight: bold;
+        color: #ffd700;
+        text-shadow: 0 0 6px #ff9900;
+        margin-left: 6px;
+    }
+
+    .cash-box {
+        background: linear-gradient(135deg,#16213e,#0f3460);
+        border: 2px solid #4fc3f7;
+        box-shadow: 0 0 12px rgba(79,195,247,0.4);
+        position: relative;
+    }
+    .cash-box::before{
+        content: '💎';
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        font-size:12px;
+    }
+    .cash-text {
+        font-size: 12px;
+        font-weight: bold;
+        animation: cashColor 1s infinite alternate;
+        white-space: nowrap;
+    }
+    @keyframes cashColor {
+        0% { color: #4fc3f7; }
+        100% { color: #76ff7a; }
+    }
+
+    .win-box{
+        width: 47%;
+        margin: 0 0 10px 12px;
+    }
+    .list-title{
+        text-align:center;
+        color:#ffd700;
+        font-weight:bold;
+        font-size:12px;
+        margin-bottom:4px;
+    }
+    .win-list{
+        position: relative;
+        background: #000;
+        border-radius:6px;
+        padding:6px;
+    }
+    .win-list::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        padding: 2px;
+        border-radius: 6px;
+        background: linear-gradient(90deg, #ff0000, #ffff00, #00ff00, #00ffff, #ff00ff, #ff0000);
+        background-size: 400% 100%;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        animation: borderFlow 2s linear infinite;
+    }
+    @keyframes borderFlow {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 400% 50%; }
+    }
+    .item{
+        display:flex;
+        font-size:9px;
+        padding:3px 0;
+        border-bottom:1px linear-gradient(90deg,#f0f,#0ff);
+        position:relative;
+    }
+    .item:last-child{border:none;}
+    .col1{width:33.333%;text-align:center;}
+    .col2{width:33.333%;text-align:center;}
+    .col3{width:33.333%;text-align:center;}
+    .item::after{
+        content:"";
+        position:absolute;
+        left:33.333%;
+        top:0;
+        bottom:0;
+        width:1px;
+        background:linear-gradient(180deg,#ff0,#0ff);
+    }
+    .item::before{
+        content:"";
+        position:absolute;
+        left:66.666%;
+        top:0;
+        bottom:0;
+        width:1px;
+        background:linear-gradient(180deg,#f0f,#ff0);
+    }
+    .item{
+        border-bottom:1px solid;
+        border-image:linear-gradient(90deg,#ff0,#f0f,#0ff) 1;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+<img src="https://i.imgur.com/VPtmxx7.png" alt="top">
+
+<div class="row-wrap">
+    <div id="poolBox" class="box-base jackpot-box">
+        <span class="title-text">JACKPOT</span>
+        <span id="poolNum" class="num-text"></span>
+    </div>
+    <div id="cashBox" class="box-base cash-box">
+        <span class="cash-text">提款随便提！！</span>
+    </div>
+</div>
+
+<div class="win-box">
+    <div class="list-title">中大奖玩家</div>
+    <div class="win-list">
+        <div class="item">
+            <span class="col1">1.22-6-2025</span>
+            <span class="col2">****1214</span>
+            <span class="col3">RM7,839.20</span>
+        </div>
+        <div class="item">
+            <span class="col1">2.22-6-2025</span>
+            <span class="col2">****0896</span>
+            <span class="col3">RM5,266.70</span>
+        </div>
+        <div class="item">
+            <span class="col1">3.21-6-2025</span>
+            <span class="col2">****3571</span>
+            <span class="col3">RM9,120.50</span>
+        </div>
+        <div class="item">
+            <span class="col1">4.21-6-2025</span>
+            <span class="col2">****7723</span>
+            <span class="col3">RM3,688.10</span>
+        </div>
+        <div class="item">
+            <span class="col1">5.20-6-2025</span>
+            <span class="col2">****4109</span>
+            <span class="col3">RM6,452.80</span>
+        </div>
+        <div class="item">
+            <span class="col1">6.20-6-2025</span>
+            <span class="col2">****9654</span>
+            <span class="col3">RM8,715.30</span>
+        </div>
+        <div class="item">
+            <span class="col1">7.19-6-2025</span>
+            <span class="col2">****2287</span>
+            <span class="col3">RM4,930.60</span>
+        </div>
+        <div class="item">
+            <span class="col1">8.19-6-2025</span>
+            <span class="col2">****5316</span>
+            <span class="col3">RM7,241.90</span>
+        </div>
+        <div class="item">
+            <span class="col1">9.18-6-2025</span>
+            <span class="col2">****8042</span>
+            <span class="col3">RM2,577.40</span>
+        </div>
+        <div class="item">
+            <span class="col1">10.18-6-2025</span>
+            <span class="col2">****1768</span>
+            <span class="col3">RM10,362.20</span>
+        </div>
+    </div>
+</div>
+
+<div class="p-3">
+    <div class="bg-red-600 inline-block px-3 py-1 rounded text-sm font-bold mb-2">🔥 热门游戏</div>
+    <div class="grid grid-cols-2 gap-2">
+        <div class="game-item click-scale bg-gray-800 h-36 flex items-center justify-center text-4xl">🐆</div>
+        <div class="game-item click-scale bg-gray-800 h-36 flex items-center justify-center text-4xl">🍒</div>
+        <div class="game-item click-scale bg-gray-800 h-36 flex items-center justify-center text-4xl">🐉</div>
+        <div class="game-item click-scale bg-gray-800 h-36 flex items-center justify-center text-4xl">🐬</div>
+    </div>
+</div>
+
+<div class="p-3">
+    <button class="w-full btn-red py-2.5 flex items-center justify-center gap-2 mb-1.5 click-scale">
+        <i class="fa-solid fa-headset"></i> 在线客服
+    </button>
+    <button class="w-full btn-red py-2.5 flex items-center justify-center gap-2 mb-1.5 click-scale">
+        <i class="fa-solid fa-headset"></i> 客服咨询
+    </button>
+    <button class="w-full btn-red py-2.5 flex items-center justify-center gap-2 mb-1.5 click-scale">
+        <i class="fa-brands fa-telegram"></i> 游戏交流群
+    </button>
+</div>
+
+<div class="p-3">
+    <h3 class="font-bold mb-2">四步轻松玩</h3>
+    <div class="grid grid-cols-4 gap-1 text-xs text-center">
+        <div class="bg-red-600 p-2 rounded">1<br>注册</div>
+        <div class="bg-yellow-500 text-black p-2 rounded">2<br>领积分</div>
+        <div class="bg-red-600 p-2 rounded">3<br>选游戏</div>
+        <div class="bg-yellow-500 text-black p-2 rounded">4<br>开始玩</div>
+    </div>
+</div>
+
+<div class="p-3 card-dark m-3">
+    <h3 class="text-yellow-400 font-bold mb-2">平台福利</h3>
+    <div class="space-y-1 text-sm">
+        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-green-400"></i>新人福利</div>
+        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-green-400"></i>每日福利</div>
+        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-green-400"></i>邀请奖励</div>
+        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-green-400"></i>周末福利</div>
+    </div>
+</div>
+</div>
+
+<div class="float-btn">
+    <button class="whatsapp-btn px-4 py-3 flex items-center gap-2 shadow-xl click-scale">
+        <i class="fa-brands fa-whatsapp text-lg"></i>
+    </button>
+</div>
+
+<script>
+const nums = ["92,553,233.23","92,334,249.53","92,871,652.18","92,146,987.75","92,609,321.46"];
+let idx=0,enlarge=false;
+const poolBox=document.getElementById('poolBox');
+const cashBox=document.getElementById('cashBox');
+const numDom=document.getElementById('poolNum');
+function breathScale(){
+    enlarge=!enlarge;
+    const scale=enlarge?1.03:0.97;
+    poolBox.style.transform=`scale(${scale})`;
+    cashBox.style.transform=`scale(${scale})`;
+    numDom.innerText=nums[idx];
+    idx=(idx+1)%nums.length;
+}
+setInterval(breathScale,500);
+document.querySelectorAll('button,.game-item').forEach(el=>{
+    el.addEventListener('click',()=>{
+        el.style.transform='scale(0.96)';
+        setTimeout(()=>el.style.transform='',150);
+    });
+});
+</script>
+</body>
+</html>
