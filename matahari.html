@@ -49,6 +49,7 @@
         0% { transform: translateY(-100vh); opacity: 0; }
         100% { transform: translateY(0); opacity: 1; }
     }
+
     img {
         display: block;
         width: 100%;
@@ -167,19 +168,12 @@
     }
     @keyframes triColor {
         0% { color: #ff0; }
-        50% { color: #0ff; }
-        100% { color: #f0f; }
+        50% { color: #fff; }
+        100% { color: #ffd700; }
     }
     .color-text {
         animation: triColor 1s infinite alternate;
         font-weight: bold;
-    }
-    @keyframes twoColor {
-        0% { color: #ff2222; }
-        100% { color: #ffd700; }
-    }
-    .step-title{
-        animation: twoColor 1s infinite alternate;
     }
     .img-block {
         width: 100%;
@@ -290,6 +284,7 @@
         gap: 8px;
         margin-bottom: 8px;
         white-space: nowrap;
+        cursor: pointer;
     }
     .cash-icon {
         width: 16px;
@@ -324,6 +319,51 @@
             opacity: 1;
             box-shadow: 0 0 15px #ff6600, 0 0 30px #ff2200;
         }
+    }
+    .split-box-wrap{
+        display:flex;
+        justify-content: space-between;
+        gap:15px;
+        margin-top:10px;
+    }
+    .left-reward{
+        flex:1;
+        border:2px solid #ffffff;
+        border-radius:8px;
+        padding:10px;
+    }
+    .right-bank{
+        flex:1;
+        border:2px solid #ffffff;
+        border-radius:8px;
+        padding:10px;
+    }
+    .reward-title{
+        font-size:14px;
+        font-weight:bold;
+        animation:triColor 1s infinite alternate;
+        margin-bottom:8px;
+        display:flex;
+        align-items:center;
+        gap:6px;
+        padding-bottom:5px;
+        border-bottom:1px solid #ffffff;
+    }
+    .title-icon{
+        width:16px;
+        height:16px;
+    }
+    .reward-line{
+        display:flex;
+        align-items:center;
+        font-size:12px;
+        margin:5px 0;
+        gap:5px;
+        animation:triColor 1s infinite alternate;
+    }
+    .small-icon{
+        width:14px;
+        height:14px;
     }
 </style>
 </head>
@@ -362,19 +402,19 @@
             <img src="https://i.imgur.com/o34cw7S.png" class="service-24img">
             <div class="service-title">24小时在线服务</div>
         </div>
-        <div class="service-item">
+        <div class="service-item" onclick="window.open('https://wa.me/60178541111')">
             <img src="https://i.imgur.com/CdlDBq0.png" class="cash-icon">
             <span class="color-text">Cashier 1 Alden</span>
         </div>
-        <div class="service-item">
+        <div class="service-item" onclick="window.open('https://wa.me/60178541111')">
             <img src="https://i.imgur.com/CdlDBq0.png" class="cash-icon">
             <span class="color-text">Cashier 2 Andy</span>
         </div>
-        <div class="service-item">
+        <div class="service-item" onclick="window.open('https://wa.me/60178541111')">
             <img src="https://i.imgur.com/CdlDBq0.png" class="cash-icon">
             <span class="color-text">Cashier 3 Xiaojiu</span>
         </div>
-        <div class="service-item">
+        <div class="service-item" onclick="window.open('https://wa.me/60178541111')">
             <img src="https://i.imgur.com/CdlDBq0.png" class="cash-icon">
             <span class="color-text">Complaint Hotline</span>
         </div>
@@ -403,7 +443,7 @@
 </div>
 
 <div class="p-3">
-    <h3 class="font-bold mb-2 step-title">四步轻松玩</h3>
+    <h3 class="font-bold mb-2 color-text">四步轻松玩</h3>
     <div class="grid grid-cols-2 gap-2">
         <div class="img-block">
             <img src="https://i.imgur.com/7A9vtqj.png" class="w-full h-full object-cover">
@@ -418,21 +458,70 @@
             <img src="https://i.imgur.com/5GqZt07.png" class="w-full h-full object-cover">
         </div>
     </div>
-</div>
 
-<div class="p-3 card-dark m-3">
-    <h3 class="text-yellow-400 font-bold mb-2">平台福利</h3>
-    <div class="space-y-1 text-sm">
-        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-green-400"></i>新人福利</div>
-        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-green-400"></i>每日福利</div>
-        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-green-400"></i>邀请奖励</div>
-        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-green-400"></i>周末福利</div>
+    <div class="split-box-wrap">
+        <div class="left-reward">
+            <div class="reward-title">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="title-icon">
+                无限奖励
+            </div>
+            <div class="reward-line">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <span>欢迎福利 100%</span>
+            </div>
+            <div class="reward-line">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <span>推荐福利 20%</span>
+            </div>
+            <div class="reward-line">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <span>周末福利 20%</span>
+            </div>
+            <div class="reward-line">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <span>凌晨福利 15%</span>
+            </div>
+            <div class="reward-line">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <span>无限福利 10%</span>
+            </div>
+            <div class="reward-line">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <span>每日福利 5%</span>
+            </div>
+        </div>
+        <div class="right-bank">
+            <div class="reward-title">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="title-icon">
+                银行促销
+            </div>
+            <div class="reward-line">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <span>进入30 拿到60</span>
+            </div>
+            <div class="reward-line">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <span>进入50 拿到100</span>
+            </div>
+            <div class="reward-line">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <span>进入100 拿到200</span>
+            </div>
+            <div class="reward-line">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <span>进入250 拿到500</span>
+            </div>
+            <div class="reward-line">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <span>进入500 拿到1000</span>
+            </div>
+        </div>
     </div>
 </div>
 </div>
 
 <div class="float-btn">
-    <button class="whatsapp-btn px-4 py-3 flex items-center gap-2 shadow-xl click-scale">
+    <button class="whatsapp-btn px-4 py-3 flex items-center gap-2 shadow-xl click-scale" onclick="window.open('https://wa.me/60178541111')">
         <i class="fa-brands fa-whatsapp text-lg"></i>
     </button>
 </div>
