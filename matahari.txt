@@ -12,13 +12,49 @@
         background: #000;
         color: #fff;
         font-family: Arial, sans-serif;
+        min-height: 100vh;
+        position: relative;
+        z-index: 1;
+    }
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-image: url('https://i.imgur.com/4H0Kxa4.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: blur(6px);
+        opacity: 0.4;
+        z-index: -1;
+    }
+    .container {
         max-width: 480px;
         margin: 0 auto;
+        width: 100%;
     }
+    .top-img {
+        max-width: 98vw;
+        width: 98.5%;
+        margin: 0 auto;
+        display: block;
+        animation: dropIn 0.7s ease-out forwards;
+        background: transparent;
+        object-fit: cover;
+    }
+    @keyframes dropIn {
+        0% { transform: translateY(-100vh); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+    }
+
     img {
         display: block;
         width: 100%;
         height: auto;
+        background: transparent;
     }
     .btn-red {
         background: linear-gradient(90deg, #ff2222, #ff6600);
@@ -39,6 +75,12 @@
     .game-item {
         border-radius: 8px;
         overflow: hidden;
+        border: 2px solid #ffd700;
+        animation: imgScale 1s infinite alternate ease-in-out;
+    }
+    @keyframes imgScale {
+        0% { transform: scale(0.95); }
+        100% { transform: scale(1.05); }
     }
     .float-btn {
         position: fixed;
@@ -50,97 +92,461 @@
         transform: scale(0.96);
         transition: 0.15s;
     }
+    .row-wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 12px;
+    }
+    .box-base {
+        width: 47%;
+        padding: 8px 12px;
+        border-radius: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.5s ease-in-out;
+    }
+    .jackpot-box {
+        background: linear-gradient(135deg, #2b1860, #1a1040);
+        border: 2px solid #ffd700;
+        box-shadow: 0 0 10px rgba(255,215,0,0.3);
+        position: relative;
+    }
+    .jackpot-box::before,
+    .jackpot-box::after {
+        content: '🪙';
+        position: absolute;
+        font-size: 14px;
+    }
+    .jackpot-box::before {
+        top: -6px;
+        left: -6px;
+    }
+    .jackpot-box::after {
+        bottom: -6px;
+        right: -6px;
+    }
+    .title-text {
+        font-size: 14px;
+        font-weight: bold;
+        animation: colorShift 1s infinite alternate;
+    }
+    @keyframes colorShift {
+        0% { color: #ffcc00; }
+        100% { color: #ffffff; }
+    }
+    .num-text {
+        font-size: 14px;
+        font-weight: bold;
+        color: #ffd700;
+        text-shadow: 0 0 6px #ff9900;
+        margin-left: 6px;
+    }
+    .cash-box {
+        background: linear-gradient(135deg,#16213e,#0f360);
+        border: 2px solid #4fc3f7;
+        box-shadow: 0 0 12px rgba(79,195,247,0.4);
+        position: relative;
+    }
+    .cash-box::before{
+        content: '💎';
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        font-size:12px;
+    }
+    .cash-text {
+        font-size: 12px;
+        font-weight: bold;
+        animation: cashColor 1s infinite alternate;
+        white-space: nowrap;
+    }
+    @keyframes cashColor {
+        0% { color: #4fc3f7; }
+        100% { color: #76ff7a; }
+    }
+    @keyframes triColor {
+        0% { color: #ff0; }
+        50% { color: #fff; }
+        100% { color: #ffd700; }
+    }
+    .color-text {
+        animation: triColor 1s infinite alternate;
+        font-weight: bold;
+    }
+    .img-block {
+        width: 100%;
+        height: 70px;
+        border: 2px solid #ffd700;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+    .flex-row-two{
+        display:flex;
+        justify-content:space-between;
+        padding:0 12px;
+        align-items: flex-start;
+    }
+    .win-box{
+        width: 48%;
+    }
+    .list-title{
+        text-align:center;
+        color:#ffd700;
+        font-weight:bold;
+        font-size:12px;
+        margin-bottom:4px;
+    }
+    .win-list{
+        position: relative;
+        background: #000;
+        border-radius:6px;
+        padding:6px;
+    }
+    .win-list::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        padding: 2px;
+        border-radius: 6px;
+        background: linear-gradient(90deg, #ff0000, #ffff00, #00ff00, #00ffff, #ff00ff, #ff0000);
+        background-size: 400% 100%;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        animation: borderFlow 2s linear infinite;
+    }
+    @keyframes borderFlow {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 400% 50%; }
+    }
+    .item{
+        display:flex;
+        font-size:9px;
+        padding:3px 0;
+        position:relative;
+    }
+    .item:last-child{border:none;}
+    .col1{width:33.333%;text-align:center;}
+    .col2{width:33.333%;text-align:center;}
+    .col3{width:33.333%;text-align:center;}
+    .item::after{
+        content:"";
+        position:absolute;
+        left:33.333%;
+        top:0;
+        bottom:0;
+        width:1px;
+        background:linear-gradient(180deg,#ff0,#0ff);
+    }
+    .item::before{
+        content:"";
+        position:absolute;
+        left:66.666%;
+        top:0;
+        bottom:0;
+        width:1px;
+        background:linear-gradient(180deg,#f0f,#ff0);
+    }
+    .item{
+        border-bottom:1px solid;
+        border-image:linear-gradient(90deg,#ff0,#f0f,#0ff) 1;
+    }
+    .service-box {
+        width: 48%;
+    }
+    .service-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        margin-bottom: 6px;
+    }
+    .service-24img {
+        width: 40px;
+        height: 40px;
+    }
+    .service-title {
+        font-size: 14px;
+        font-weight: bold;
+        animation: triColor 1s infinite alternate;
+    }
+    .service-item {
+        border: 1px solid #4fc3f7;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 10px 12px;
+        font-size: 12px;
+        gap: 8px;
+        margin-bottom: 8px;
+        white-space: nowrap;
+        cursor: pointer;
+    }
+    .cash-icon {
+        width: 16px;
+        height: 16px;
+        background: transparent;
+        flex-shrink: 0;
+    }
+    .fire-title {
+        font-size: 18px;
+        font-weight: bold;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+    .fire-icon {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background: radial-gradient(circle, #ffdd00, #ff6600, #ff2200);
+        border-radius: 50%;
+        animation: firePulse 0.6s infinite alternate;
+        box-shadow: 0 0 10px #ff6600, 0 0 20px #ff2200;
+    }
+    @keyframes firePulse {
+        0% {
+            transform: scale(0.8);
+            opacity: 0.8;
+            box-shadow: 0 0 5px #ff6600, 0 0 10px #ff2200;
+        }
+        100% {
+            transform: scale(1.2);
+            opacity: 1;
+            box-shadow: 0 0 15px #ff6600, 0 0 30px #ff2200;
+        }
+    }
+    .split-box-wrap{
+        display:flex;
+        justify-content: space-between;
+        gap:15px;
+        margin-top:10px;
+    }
+    .left-reward{
+        flex:1;
+        border:2px solid #ffffff;
+        border-radius:8px;
+        padding:10px;
+    }
+    .right-bank{
+        flex:1;
+        border:2px solid #ffffff;
+        border-radius:8px;
+        padding:10px;
+    }
+    .reward-title{
+        font-size:14px;
+        font-weight:bold;
+        animation:triColor 1s infinite alternate;
+        margin-bottom:8px;
+        display:flex;
+        align-items:center;
+        gap:6px;
+        padding-bottom:5px;
+        border-bottom:1px solid #ffffff;
+    }
+    .title-icon{
+        width:16px;
+        height:16px;
+    }
+    .reward-line{
+        display:flex;
+        align-items:center;
+        font-size:12px;
+        margin:5px 0;
+        gap:5px;
+        animation:triColor 1s infinite alternate;
+    }
+    .small-icon{
+        width:14px;
+        height:14px;
+    }
 </style>
 </head>
 <body>
+<div class="container">
+<img src="https://i.imgur.com/VPtmxx7.png" alt="top" class="top-img">
 
-<!-- ✅ 你要的图片 已放在最顶部 -->
-<img src="https://i.imgur.com/DLAjUGG.png" alt="顶部横幅">
-
-<!-- 积分栏 -->
-<div class="flex justify-between items-center px-4 py-3 bg-black text-sm">
-    <div class="flex items-center gap-2">
-        <i class="fa-solid fa-coins text-yellow-400"></i>
-        <span>平台积分池</span>
+<div class="row-wrap">
+    <div id="poolBox" class="box-base jackpot-box">
+        <span class="title-text">JACKPOT</span>
+        <span id="poolNum" class="num-text"></span>
     </div>
-    <span class="text-yellow-400 font-bold">92,547,852</span>
+    <div id="cashBox" class="box-base cash-box">
+        <span class="cash-text">提款随便提！！</span>
+    </div>
 </div>
 
-<!-- 榜单 -->
-<div class="p-4 card-dark m-3">
-    <h3 class="text-yellow-400 font-bold mb-2">最新积分榜单</h3>
-    <div class="text-xs space-y-1.5">
-        <div class="flex justify-between text-gray-300 pb-1 border-b border-gray-700">
-            <span>日期</span><span>游戏</span><span>获得积分</span>
+<div class="flex-row-two">
+    <div class="win-box">
+        <div class="list-title">中大奖玩家</div>
+        <div class="win-list">
+            <div class="item"><span class="col1">1.22-6-2025</span><span class="col2">****1214</span><span class="col3">RM7,839.20</span></div>
+            <div class="item"><span class="col1">2.22-6-2025</span><span class="col2">****0896</span><span class="col3">RM5,266.70</span></div>
+            <div class="item"><span class="col1">3.21-6-2025</span><span class="col2">****3571</span><span class="col3">RM9,120.50</span></div>
+            <div class="item"><span class="col1">4.21-6-2025</span><span class="col2">****7723</span><span class="col3">RM3,688.10</span></div>
+            <div class="item"><span class="col1">5.20-6-2025</span><span class="col2">****4109</span><span class="col3">RM6,452.80</span></div>
+            <div class="item"><span class="col1">6.20-6-2025</span><span class="col2">****9654</span><span class="col3">RM8,715.30</span></div>
+            <div class="item"><span class="col1">7.19-6-2025</span><span class="col2">****2287</span><span class="col3">RM4,930.60</span></div>
+            <div class="item"><span class="col1">8.19-6-2025</span><span class="col2">****5316</span><span class="col3">RM7,241.90</span></div>
+            <div class="item"><span class="col1">9.18-6-2025</span><span class="col2">****8042</span><span class="col3">RM2,577.40</span></div>
+            <div class="item"><span class="col1">10.18-6-2025</span><span class="col2">****1768</span><span class="col3">RM10,362.20</span></div>
         </div>
-        <div class="flex justify-between"><span>21-06</span><span>暗夜豹影</span><span class="text-green-400">7130</span></div>
-        <div class="flex justify-between"><span>20-06</span><span>缤纷鲜果</span><span class="text-green-400">5214</span></div>
-        <div class="flex justify-between"><span>18-06</span><span>江湖历险</span><span class="text-green-400">3012</span></div>
-        <div class="flex justify-between"><span>15-06</span><span>深海奇遇</span><span class="text-green-400">1809</span></div>
+    </div>
+    <div class="service-box">
+        <div class="service-header">
+            <img src="https://i.imgur.com/o34cw7S.png" class="service-24img">
+            <div class="service-title">24小时在线服务</div>
+        </div>
+        <div class="service-item" onclick="window.open('https://wa.me/60178541111')">
+            <img src="https://i.imgur.com/CdlDBq0.png" class="cash-icon">
+            <span class="color-text">Cashier 1 Alden</span>
+        </div>
+        <div class="service-item" onclick="window.open('https://wa.me/60178541111')">
+            <img src="https://i.imgur.com/CdlDBq0.png" class="cash-icon">
+            <span class="color-text">Cashier 2 Andy</span>
+        </div>
+        <div class="service-item" onclick="window.open('https://wa.me/60178541111')">
+            <img src="https://i.imgur.com/CdlDBq0.png" class="cash-icon">
+            <span class="color-text">Cashier 3 Xiaojiu</span>
+        </div>
+        <div class="service-item" onclick="window.open('https://wa.me/60178541111')">
+            <img src="https://i.imgur.com/CdlDBq0.png" class="cash-icon">
+            <span class="color-text">Complaint Hotline</span>
+        </div>
     </div>
 </div>
 
-<!-- 热门游戏 -->
 <div class="p-3">
-    <div class="bg-red-600 inline-block px-3 py-1 rounded text-sm font-bold mb-2">🔥 热门游戏</div>
+    <div class="fire-title mb-2">
+        <span class="fire-icon"></span>
+        热门游戏
+    </div>
     <div class="grid grid-cols-2 gap-2">
-        <div class="game-item click-scale bg-gray-800 h-36 flex items-center justify-center text-4xl">🐆</div>
-        <div class="game-item click-scale bg-gray-800 h-36 flex items-center justify-center text-4xl">🍒</div>
-        <div class="game-item click-scale bg-gray-800 h-36 flex items-center justify-center text-4xl">🐉</div>
-        <div class="game-item click-scale bg-gray-800 h-36 flex items-center justify-center text-4xl">🐬</div>
+        <div class="game-item click-scale h-36">
+            <img src="https://i.imgur.com/7A9vtqj.png" class="w-full h-full object-cover">
+        </div>
+        <div class="game-item click-scale h-36">
+            <img src="https://i.imgur.com/EyLzAhu.png" class="w-full h-full object-cover">
+        </div>
+        <div class="game-item click-scale h-36">
+            <img src="https://i.imgur.com/1KJAa76.png" class="w-full h-full object-cover">
+        </div>
+        <div class="game-item click-scale h-36">
+            <img src="https://i.imgur.com/5GqZt07.png" class="w-full h-full object-cover">
+        </div>
     </div>
 </div>
 
-<!-- 客服 -->
 <div class="p-3">
-    <button class="w-full btn-red py-2.5 flex items-center justify-center gap-2 mb-1.5 click-scale">
-        <i class="fa-solid fa-headset"></i> 在线客服
-    </button>
-    <button class="w-full btn-red py-2.5 flex items-center justify-center gap-2 mb-1.5 click-scale">
-        <i class="fa-solid fa-headset"></i> 客服咨询
-    </button>
-    <button class="w-full btn-red py-2.5 flex items-center justify-center gap-2 mb-1.5 click-scale">
-        <i class="fa-brands fa-telegram"></i> 游戏交流群
-    </button>
-</div>
+    <h3 class="font-bold mb-2 color-text">四步轻松玩</h3>
+    <div class="grid grid-cols-2 gap-2">
+        <div class="img-block">
+            <img src="https://i.imgur.com/7A9vtqj.png" class="w-full h-full object-cover">
+        </div>
+        <div class="img-block">
+            <img src="https://i.imgur.com/EyLzAhu.png" class="w-full h-full object-cover">
+        </div>
+        <div class="img-block">
+            <img src="https://i.imgur.com/1KJAa76.png" class="w-full h-full object-cover">
+        </div>
+        <div class="img-block">
+            <img src="https://i.imgur.com/5GqZt07.png" class="w-full h-full object-cover">
+        </div>
+    </div>
 
-<!-- 步骤 -->
-<div class="p-3">
-    <h3 class="font-bold mb-2">四步轻松玩</h3>
-    <div class="grid grid-cols-4 gap-1 text-xs text-center">
-        <div class="bg-red-600 p-2 rounded">1<br>注册</div>
-        <div class="bg-yellow-500 text-black p-2 rounded">2<br>领积分</div>
-        <div class="bg-red-600 p-2 rounded">3<br>选游戏</div>
-        <div class="bg-yellow-500 text-black p-2 rounded">4<br>开始玩</div>
+    <div class="split-box-wrap">
+        <div class="left-reward">
+            <div class="reward-title">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="title-icon">
+                无限奖励
+            </div>
+            <div class="reward-line">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <span>欢迎福利 100%</span>
+            </div>
+            <div class="reward-line">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <span>推荐福利 20%</span>
+            </div>
+            <div class="reward-line">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <span>周末福利 20%</span>
+            </div>
+            <div class="reward-line">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <span>凌晨福利 15%</span>
+            </div>
+            <div class="reward-line">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <span>无限福利 10%</span>
+            </div>
+            <div class="reward-line">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <span>每日福利 5%</span>
+            </div>
+        </div>
+        <div class="right-bank">
+            <div class="reward-title">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="title-icon">
+                银行促销
+            </div>
+            <div class="reward-line">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <span>进入30 拿到60</span>
+            </div>
+            <div class="reward-line">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <span>进入50 拿到100</span>
+            </div>
+            <div class="reward-line">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <span>进入100 拿到200</span>
+            </div>
+            <div class="reward-line">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <span>进入250 拿到500</span>
+            </div>
+            <div class="reward-line">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <span>进入500 拿到1000</span>
+            </div>
+        </div>
     </div>
 </div>
-
-<!-- 福利 -->
-<div class="p-3 card-dark m-3">
-    <h3 class="text-yellow-400 font-bold mb-2">平台福利</h3>
-    <div class="space-y-1 text-sm">
-        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-green-400"></i>新人福利</div>
-        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-green-400"></i>每日奖励</div>
-        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-green-400"></i>邀请奖励</div>
-        <div class="flex items-center gap-2"><i class="fa-solid fa-check text-green-400"></i>周末礼包</div>
-    </div>
 </div>
 
-<!-- 悬浮客服 -->
 <div class="float-btn">
-    <button class="whatsapp-btn px-4 py-3 flex items-center gap-2 shadow-xl click-scale">
+    <button class="whatsapp-btn px-4 py-3 flex items-center gap-2 shadow-xl click-scale" onclick="window.open('https://wa.me/60178541111')">
         <i class="fa-brands fa-whatsapp text-lg"></i>
     </button>
 </div>
 
 <script>
-document.querySelectorAll('button, .game-item').forEach(el => {
-    el.addEventListener('click', () => {
-        el.style.transform = 'scale(0.96)'
-        setTimeout(() => el.style.transform = '', 150)
-    })
-})
+const nums = ["92,553,233.23","92,334,249.53","92,871,652.18","92,146,987.75","92,609,321.46"];
+let idx=0,enlarge=false;
+const poolBox=document.getElementById('poolBox');
+const cashBox=document.getElementById('cashBox');
+const numDom=document.getElementById('poolNum');
+function breathScale(){
+    enlarge=!enlarge;
+    const scale=enlarge?1.03:0.97;
+    poolBox.style.transform=`scale(${scale})`;
+    cashBox.style.transform=`scale(${scale})`;
+    numDom.innerText=nums[idx];
+    idx=(idx+1)%nums.length;
+}
+setInterval(breathScale,500);
+document.querySelectorAll('button,.game-item').forEach(el=>{
+    el.addEventListener('click',()=>{
+        el.style.transform='scale(0.96)';
+        setTimeout(()=>el.style.transform='',150);
+    });
+});
 </script>
-
 </body>
 </html>
