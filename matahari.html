@@ -166,13 +166,60 @@
         0% { color: #4fc3f7; }
         100% { color: #76ff7a; }
     }
-    @keyframes triColor {
-        0% { color: #ff0; }
-        50% { color: #fff; }
-        100% { color: #ffd700; }
+    @keyframes fourColor {
+        0% { color: #ff0000; }
+        25% { color: #ffff00; }
+        50% { color: #00ff00; }
+        75% { color: #0099ff; }
+        100% { color: #ff0000; }
+    }
+    .sports-title{
+        font-size: 28px;
+        font-weight: 900;
+        text-align: center;
+        margin: 20px 0 8px 0;
+        animation: fourColor 1.2s infinite linear;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+    .sports-icon{
+        width: 36px;
+        height: 36px;
+    }
+    .sports-line{
+        height: 2px;
+        background: #fff;
+        margin: 0 auto 15px auto;
+        width: 90%;
+    }
+    .sports-flex{
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+        align-items: center;
+        padding: 0 10px;
+    }
+    .sports-item{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+    .play-btn{
+        background: linear-gradient(90deg, #ff2222, #ff6600);
+        color: #fff;
+        font-weight: bold;
+        font-size: 16px;
+        padding: 8px 16px;
+        border-radius: 8px;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
     }
     .color-text {
-        animation: triColor 1s infinite alternate;
+        animation: fourColor 1s infinite alternate;
         font-weight: bold;
     }
     .img-block {
@@ -271,7 +318,7 @@
     .service-title {
         font-size: 14px;
         font-weight: bold;
-        animation: triColor 1s infinite alternate;
+        animation: fourColor 1s infinite alternate;
     }
     .service-item {
         border: 1px solid #4fc3f7;
@@ -281,7 +328,7 @@
         justify-content: flex-start;
         padding: 10px 12px;
         font-size: 12px;
-        gap: 8px;
+       第一平台 gap: 8px;
         margin-bottom: 8px;
         white-space: nowrap;
         cursor: pointer;
@@ -341,7 +388,7 @@
     .reward-title{
         font-size:14px;
         font-weight:bold;
-        animation:triColor 1s infinite alternate;
+        animation:fourColor 1s infinite alternate;
         margin-bottom:8px;
         display:flex;
         align-items:center;
@@ -350,8 +397,9 @@
         border-bottom:1px solid #ffffff;
     }
     .title-icon{
-        width:16px;
-        height:16px;
+        width:32px;
+        height:32px;
+        background:transparent !important;
     }
     .reward-line{
         display:flex;
@@ -359,11 +407,101 @@
         font-size:12px;
         margin:5px 0;
         gap:5px;
-        animation:triColor 1s infinite alternate;
+        animation:fourColor 1s infinite alternate;
     }
     .small-icon{
-        width:14px;
-        height:14px;
+        width:16px;
+        height:16px;
+        background:transparent !important;
+        object-fit:contain;
+    }
+    @keyframes sport1 {
+        0% { transform: scale(1); }
+        100% { transform: scale(1.1); }
+    }
+    @keyframes sport2 {
+        0% { transform: translateX(0); }
+        50% { transform: translateX(6px); }
+        100% { transform: translateX(0); }
+    }
+    .sport-img-1 {
+        width: 4em;
+        height: 4em;
+        animation: sport1 1s infinite alternate;
+        object-fit: contain;
+        background: transparent !important;
+        mix-blend-mode: multiply;
+    }
+    .sport-img-2 {
+        width: 4em;
+        height: 4em;
+        animation: sport2 1.2s infinite linear;
+        object-fit: contain;
+        background: transparent !important;
+        mix-blend-mode: multiply;
+    }
+    .desc-big-text{
+        font-size: 18px;
+        font-weight: bold;
+        animation: fourColor 1.2s infinite linear;
+        line-height: 1.1;
+        margin: 15px 0;
+    }
+    .small-img-row{
+        display: flex;
+        gap: 12px;
+        margin: 10px 0 25px 0;
+    }
+    .mini-img{
+        width: 16px;
+        height: 16px;
+        object-fit: contain;
+    }
+    .domain-footer{
+        font-size: 12px;
+        color: #999;
+        padding: 20px 0;
+        border-top: 1px solid #333;
+    }
+    /* 底部新布局样式 */
+    .bottom-layout {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 15px 0;
+    }
+    .left-big-img {
+        width: 48%;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    .right-icon-group {
+        width: 48%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+    .follow-title {
+        font-size: 16px;
+        font-weight: bold;
+        color: #ffd700;
+        animation: fourColor 1s infinite linear;
+    }
+    .icon-row {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+    /* 马来西亚第一赌博 样式 */
+    .malaysia-title {
+        font-size: 26px;
+        font-weight: 900;
+        text-align: center;
+        margin: 25px 0 15px 0;
+        animation: fourColor 1.2s infinite linear;
+        text-shadow: 0 0 10px rgba(255,215,0,0.8);
     }
 </style>
 </head>
@@ -462,60 +600,97 @@
     <div class="split-box-wrap">
         <div class="left-reward">
             <div class="reward-title">
-                <img src="https://i.imgur.com/CdlDBq0.png" class="title-icon">
+                <img src="https://imgur.com/5ZSpBXu.png" class="title-icon">
                 无限奖励
             </div>
             <div class="reward-line">
-                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <img src="https://imgur.com/5ZSpBXu.png" class="small-icon">
                 <span>欢迎福利 100%</span>
             </div>
             <div class="reward-line">
-                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <img src="https://imgur.com/5ZSpBXu.png" class="small-icon">
                 <span>推荐福利 20%</span>
             </div>
             <div class="reward-line">
-                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <img src="https://imgur.com/5ZSpBXu.png" class="small-icon">
                 <span>周末福利 20%</span>
             </div>
             <div class="reward-line">
-                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <img src="https://imgur.com/5ZSpBXu.png" class="small-icon">
                 <span>凌晨福利 15%</span>
             </div>
             <div class="reward-line">
-                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <img src="https://imgur.com/5ZSpBXu.png" class="small-icon">
                 <span>无限福利 10%</span>
             </div>
             <div class="reward-line">
-                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <img src="https://imgur.com/5ZSpBXu.png" class="small-icon">
                 <span>每日福利 5%</span>
             </div>
         </div>
         <div class="right-bank">
             <div class="reward-title">
-                <img src="https://i.imgur.com/CdlDBq0.png" class="title-icon">
+                <img src="https://i.imgur.com/BVl0EUd.png" class="title-icon">
                 银行促销
             </div>
             <div class="reward-line">
-                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <img src="https://imgur.com/hcl76SY.png" class="small-icon">
                 <span>进入30 拿到60</span>
             </div>
             <div class="reward-line">
-                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <img src="https://imgur.com/hcl76SY.png" class="small-icon">
                 <span>进入50 拿到100</span>
             </div>
             <div class="reward-line">
-                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <img src="https://imgur.com/hcl76SY.png" class="small-icon">
                 <span>进入100 拿到200</span>
             </div>
             <div class="reward-line">
-                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <img src="https://imgur.com/hcl76SY.png" class="small-icon">
                 <span>进入250 拿到500</span>
             </div>
             <div class="reward-line">
-                <img src="https://i.imgur.com/CdlDBq0.png" class="small-icon">
+                <img src="https://imgur.com/hcl76SY.png" class="small-icon">
                 <span>进入500 拿到1000</span>
             </div>
         </div>
+    </div>
+
+    <div class="sports-title">
+        <img src="https://imgur.com/1Z1KDbf.png" class="sports-icon">
+        体育下注
+    </div>
+    <div class="sports-line"></div>
+    
+    <div class="sports-flex">
+        <div class="sports-item">
+            <img src="https://imgur.com/oOYI6mH.png" class="sport-img-1">
+            <div class="play-btn click-scale" onclick="window.open('https://www.redstagapp.com','_blank')">玩</div>
+        </div>
+        <div class="sports-item">
+            <img src="https://imgur.com/MzdNYFk.png" class="sport-img-2">
+            <div class="play-btn click-scale">玩</div>
+        </div>
+    </div>
+
+    <!-- 新增：马来西亚第一平台 -->
+    <div class="malaysia-title">马来西亚第一平台</div>
+
+    <!-- 底部全新布局：左大图 + 右跟进+3小图 -->
+    <div class="bottom-layout">
+        <img src="https://imgur.com/yf7mGJt.png" class="left-big-img">
+        <div class="right-icon-group">
+            <div class="follow-title">跟进</div>
+            <div class="icon-row">
+                <img src="https://i.imgur.com/e3WLCTQ.png" class="mini-img">
+                <img src="https://i.imgur.com/CdlDBq0.png" class="mini-img">
+                <img src="https://i.imgur.com/nrMpvWw.png" class="mini-img">
+            </div>
+        </div>
+    </div>
+
+    <div class="domain-footer text-center">
+        2026-2036 &nbsp; https://alden12112.github.io/alden11/matahari.html
     </div>
 </div>
 </div>
